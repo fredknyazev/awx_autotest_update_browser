@@ -1,0 +1,22 @@
+---  
+- name: "update Chrome"
+  win_update_browser:
+    processname: "{{chrome_processname}}"
+    browserexe: "{{chrome_executable}}"
+    browserdistr: "{{chrome_browserdistr}}"
+    chromeinstall: "{{chrome_install}}"
+    become: yes
+    become_method: runas
+    state: cromeinstallFull
+
+- name: "update FF"
+  win_update_browser:
+    processname: "{{ff_processname}}"
+    browserexe: "{{ff_executable}}"
+    browserdistr: "{{ff_browserdistr}}"
+    ffinstall: "{{ff_install}}"
+    become: yes
+    become_method: runas
+    state: ffinstallFull    
+
+

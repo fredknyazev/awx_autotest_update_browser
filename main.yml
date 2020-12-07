@@ -1,0 +1,10 @@
+---
+- name: Update Browsers
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: "Import role"
+      include_role:
+        name: "browserupd"
+
