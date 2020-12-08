@@ -244,6 +244,7 @@ Function Copy-Webdriver{
       Copy-Item $webdriver -Destination $webdriver_path -Force
       $result.msg.webdriver_update = "success"
     }
+}
 Try {
   switch ($action) {
     Kill {Kill-Process}
@@ -251,7 +252,7 @@ Try {
     ChromeInstall {if ($chromeinstall -eq 1){Install-Chrome}}
     FFUpdatesDisabled {if ($ffinstall -eq 1){Disable-FF-AutoUpdate}}
     ChromeUpdatesDisabled {if ($chromeinstall -eq 1){Disable-Chrome-AutoUpdate}}
-    FFInstallFull {if ($ffinstall -eq 1){Kill-Process; Disable-FF-AutoUpdate; Install-FF; Copy-Webdriver}
+    FFInstallFull {if ($ffinstall -eq 1){Kill-Process; Disable-FF-AutoUpdate; Install-FF; Copy-Webdriver}}
     ChromeInstallFull {if ($chromeinstall -eq 1){Kill-Process; Install-Chrome; Copy-Webdriver; Disable-Chrome-AutoUpdate}}
     CopyWebdriver {if (($chromeinstall -eq 1) -or ($ffinstall -eq 1)) {Copy-Webdriver}}
   }
