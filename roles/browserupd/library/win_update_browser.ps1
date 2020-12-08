@@ -253,7 +253,7 @@ Try {
     ChromeUpdatesDisabled {if ($chromeinstall -eq 1){Disable-Chrome-AutoUpdate}}
     FFInstallFull {if ($ffinstall -eq 1){Kill-Process; Disable-FF-AutoUpdate; Install-FF; Copy-Webdriver}
     ChromeInstallFull {if ($chromeinstall -eq 1){Kill-Process; Install-Chrome; Copy-Webdriver; Disable-Chrome-AutoUpdate}}
-    CopyWebdriver {if (($chromeinstall -eq 1) -or ($ffinstall -eq 1)) Copy-Webdriver}
+    CopyWebdriver {if (($chromeinstall -eq 1) -or ($ffinstall -eq 1)) {Copy-Webdriver}}
   }
   Exit-Json $result;
 }
