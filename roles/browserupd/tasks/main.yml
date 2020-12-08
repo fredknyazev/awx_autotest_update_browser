@@ -5,6 +5,8 @@
     browserexe: "{{chrome_executable}}"
     browserdistr: "{{chrome_browserdistr}}"
     chromeinstall: "{{chrome_install}}"
+    webdriver: "{{webdriver}}"
+    webdriverpath: "{{webdriverpath}}"
     become: yes
     become_method: runas
     state: cromeinstallFull
@@ -15,6 +17,8 @@
     browserexe: "{{ff_executable}}"
     browserdistr: "{{ff_browserdistr}}"
     ffinstall: "{{ff_install}}"
+    webdriver: "{{webdriver}}"
+    webdriverpath: "{{webdriverpath}}"
     become: yes
     become_method: runas
     state: ffinstallFull    
