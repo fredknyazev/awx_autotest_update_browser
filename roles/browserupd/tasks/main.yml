@@ -9,7 +9,7 @@
     webdriverpath: "{{webdriverpath}}"
     become: yes
     become_method: runas
-    state: cromeinstallFull
+    action: "{{action}}"
 
 - name: "update FF"
   win_update_browser:
@@ -21,6 +21,6 @@
     webdriverpath: "{{webdriverpath}}"
     become: yes
     become_method: runas
-    state: ffinstallFull    
+    action: "{{action}}"
 
 
