@@ -125,7 +125,6 @@ Function Install-FF {
         $ffversion = [system.version]::Parse((get-item $browserexe).VersionInfo.ProductVersion)
         $repeats += 1
     }
-    Remove-Item -Path $copydistr.fullname -Force
     if ($ffversion -eq $distrversion){
       $result.changed = $true
     }
@@ -187,7 +186,6 @@ Function Install-Chrome{
         $chromeversion = [system.version]::Parse((get-item $browserexe).VersionInfo.ProductVersion)
         $repeats += 1
     }
-    Remove-Item -Path $copydistr.fullname -Force
     if ($chromeversion -eq $distrversion){
       $result.changed = $true
     }
