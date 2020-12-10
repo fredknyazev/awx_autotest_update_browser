@@ -201,13 +201,13 @@ Function Install-Chrome{
   $result.msg = $msg
 }
 Function Copy-Webdriver{
-  $webdriver = Get-Attr -obj $params -name webdriver -default ' '
-  $webdriver_path = Get-Attr -obj $params -name webdriver_path -default ' '
-  if ($webdriver -ne ' ') {
-      if (-ne (test-path $webdriver)) {
+  $webdriver = Get-Attr -obj $params -name webdriver -default $null
+  $webdriver_path = Get-Attr -obj $params -name webdriver_path -default $null
+  if ($webdriver -ne $null) {
+      if (!(test-path $webdriver)) {
         Fail-Json $result "webdriver not found on path $webdriver"
       }
-      if (-ne (test-path $webdriver_path)) {
+      if (!(test-path $webdriver_path)) {
         Fail-Json $result "webdriver path not found on path $webdriver_path"
       }
       $driver_name = Split-Path $webdriver -leaf
