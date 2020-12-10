@@ -204,10 +204,10 @@ Function Copy-Webdriver{
   $webdriver = Get-Attr -obj $params -name webdriver -default ' '
   $webdriver_path = Get-Attr -obj $params -name webdriver_path -default ' '
   if ($webdriver -ne ' ') {
-      if (test-path $webdriver) {
+      if (-ne (test-path $webdriver)) {
         Fail-Json $result "webdriver not found on path $webdriver"
       }
-      if (test-path $webdriver_path) {
+      if (-ne (test-path $webdriver_path)) {
         Fail-Json $result "webdriver path not found on path $webdriver_path"
       }
       $driver_name = Split-Path $webdriver -leaf
