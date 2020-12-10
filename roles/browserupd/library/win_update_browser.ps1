@@ -204,6 +204,12 @@ Function Copy-Webdriver{
   $webdriver = Get-Attr -obj $params -name webdriver -default $null
   $webdriver_path = Get-Attr -obj $params -name webdriver_path -default $null
   if ($webdriver -ne $null -and $webdriver_path -ne $null) {
+      if (-ne (test-path $webdriver)) {
+        Fail-Json $result "webdriver not found on path $webdriver"
+      }
+      if (-ne (test-path $webdriver_path)) {
+        Fail-Json $result "webdriver path not found on path $webdriver_path"
+      }
       $driver_name = Split-Path $webdriver -leaf
       $old_driver_name = "$($webdriver_path)\old_$($driver_name)"
       if (test-path $old_driver_name)
@@ -215,15 +221,7 @@ Function Copy-Webdriver{
       {
         Rename-Item $webdriver_file_path -NewName "old_$($driver_name)" -Force
       }
-      $processname = ""
-      if ($chromeinstall -eq 1)
-      {
-        $processname = "chromedriver"
-      }
-      if ($ffinstall -eq 1)
-      {
-        $processname = "geckodriver"
-      }
+      $processname = $driver_name -replace ".exe$", ""
       $processlist = @()
       $processlist += (Get-Process -name $processname -ErrorAction SilentlyContinue | where {-not $_.HasExited})
       if ($processlist){
