@@ -6,7 +6,7 @@
     browserdistr: "{{chrome_browserdistr}}"
     chromeinstall: "{{chrome_install}}"
     webdriver: "{{webdriver}}"
-    webdriverpath: "{{webdriverpath}}"
+    webdriver_path: "{{webdriver_path}}"
     become: yes
     become_method: runas
     action: "{{action}}"
@@ -18,7 +18,7 @@
     browserdistr: "{{ff_browserdistr}}"
     ffinstall: "{{ff_install}}"
     webdriver: "{{webdriver}}"
-    webdriverpath: "{{webdriverpath}}"
+    webdriver_path: "{{webdriver_path}}"
     become: yes
     become_method: runas
     action: "{{action}}"
