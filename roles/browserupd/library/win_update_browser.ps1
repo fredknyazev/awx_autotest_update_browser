@@ -238,7 +238,6 @@ Function Copy-Webdriver{
         }
         }
       Copy-Item $webdriver -Destination $webdriver_path -Force
-      $result.msg.webdriver_update = "success"
   }
 }
 Try {
