@@ -118,7 +118,6 @@ Function Install-FF {
   if ($distrversion -gt $ffversion){
     $params = "/S /MaintenanceService=false"
     $params1 = $params.Split(" ")
-    & "$browserdistr" $params1
     $processid = Start-Process $browserdistr $params -PassThru | select -ExpandProperty ID
     Start-Sleep -Seconds 5
     while (get-process | where {$_.ID -eq $processid}){
