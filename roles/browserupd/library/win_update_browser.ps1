@@ -119,8 +119,11 @@ Function Install-FF {
     $params = "/S /MaintenanceService=false"
     $params1 = $params.Split(" ")
     & "$browserdistr" $params1
-    Start-Process $browserdistr $params -PassThru -Wait
+    $processid = Start-Process $browserdistr $params -PassThru | select -ExpandProperty ID
     Start-Sleep -Seconds 5
+    while (get-process | where {$_.ID -eq $processid}){
+      Start-Sleep -Seconds 5
+    }
     $ffversion = [system.version]::Parse((get-item $browserexe).VersionInfo.ProductVersion)
     if ($ffversion -eq $distrversion){
       $result.changed = $true
