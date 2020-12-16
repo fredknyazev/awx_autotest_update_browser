@@ -119,12 +119,9 @@ Function Install-FF {
     $params = "/S /MaintenanceService=false"
     $params1 = $params.Split(" ")
     & "$browserdistr" $params1
-    $repeats = 0
-    while (($ffversion -ne $distrversion) -and ($repears -le 10)) {
-        Start-Sleep -Seconds 5
-        $ffversion = [system.version]::Parse((get-item $browserexe).VersionInfo.ProductVersion)
-        $repeats += 1
-    }
+    Start-Process $browserdistr $params -PassThru -Wait
+    Start-Sleep -Seconds 5
+    $ffversion = [system.version]::Parse((get-item $browserexe).VersionInfo.ProductVersion)
     if ($ffversion -eq $distrversion){
       $result.changed = $true
     }
@@ -180,12 +177,8 @@ Function Install-Chrome{
       "/norestart"
     )
     Start-Process msiexec.exe -ArgumentList $MSIArguments -Wait -NoNewWindow
-    $repeats = 0
-    while (($chromeversion -ne $distrversion) -and ($repears -le 10)) {
-        Start-Sleep -Seconds 5
-        $chromeversion = [system.version]::Parse((get-item $browserexe).VersionInfo.ProductVersion)
-        $repeats += 1
-    }
+    Start-Sleep -Seconds 5
+    $chromeversion = [system.version]::Parse((get-item $browserexe).VersionInfo.ProductVersion)
     if ($chromeversion -eq $distrversion){
       $result.changed = $true
     }
