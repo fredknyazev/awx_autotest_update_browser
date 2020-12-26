@@ -19,11 +19,11 @@ Try {
   {
     Fail-Json $result "Changed WindowsProductName"
   }
-  if ($infoversion.WindowsVersion -ne WindowsVersion)
+  if ($infoversion.WindowsVersion -ne $WindowsVersion)
   {
     Fail-Json $result "Changed WindowsVersion"
   }
-  if ($infoversion.OsHardwareAbstractionLayer -ne OsHardwareAbstractionLayer)
+  if ($infoversion.OsHardwareAbstractionLayer -ne $OsHardwareAbstractionLayer)
   {
     Fail-Json $result "Changed OsHardwareAbstractionLayer"
   }
