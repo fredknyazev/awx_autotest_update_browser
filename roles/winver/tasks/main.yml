@@ -1,0 +1,5 @@
+---  
+- name: "Getting Windows version"
+  win_version:
+    become: yes
+    become_method: runas

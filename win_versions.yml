@@ -1,0 +1,10 @@
+---
+- name: Get windows version
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: "Import role"
+      include_role:
+        name: "winver"
+
