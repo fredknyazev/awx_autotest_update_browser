@@ -8,7 +8,6 @@ $result = @{};
 Set-Attr $result "msg" "Init msg";
 Try {
   $infoversion = Get-ComputerInfo | select WindowsProductName, WindowsVersion, OsHardwareAbstractionLayer
-  $myObject | ConvertTo-Json -depth 1- | Set-Content -Path $Path
   $msg = @{};
   msg.WindowsProductName = $infoversion.WindowsProductName
   msg.WindowsVersion = $infoversion.WindowsVersion
