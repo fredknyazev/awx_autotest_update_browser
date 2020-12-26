@@ -8,9 +8,9 @@ $result = @{};
 Try {
   $infoversion = Get-ComputerInfo | select WindowsProductName, WindowsVersion, OsHardwareAbstractionLayer
   $msg = @{}
-  msg.windowsproductname = $infoversion.WindowsProductName
-  msg.windowsversion = $infoversion.WindowsVersion
-  msg.oshardwareabstractionlayer = $infoversion.OsHardwareAbstractionLayer
+  $msg.WindowsProductName = $infoversion.WindowsProductName
+  $msg.WindowsVersion = $infoversion.WindowsVersion
+  $msg.OsHardwareAbstractionLayer = $infoversion.OsHardwareAbstractionLayer
   $result.msg = $msg
   Exit-Json $result;
 }
