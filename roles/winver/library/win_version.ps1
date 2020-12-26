@@ -17,15 +17,15 @@ Try {
   $result.msg = $msg
   if ($infoversion.WindowsProductName -ne $WindowsProductName)
   {
-    Fail-Json $result "Changed WindowsProductName"
+    Fail-Json $result "Changed WindowsProductName Current: $infoversion.WindowsProductName Expected: $WindowsProductName"
   }
   if ($infoversion.WindowsVersion -ne $WindowsVersion)
   {
-    Fail-Json $result "Changed WindowsVersion"
+    Fail-Json $result "Changed WindowsVersion Current: $infoversion.WindowsVersion Expected: $WindowsVersion"
   }
   if ($infoversion.OsHardwareAbstractionLayer -ne $OsHardwareAbstractionLayer)
   {
-    Fail-Json $result "Changed OsHardwareAbstractionLayer"
+    Fail-Json $result "Changed OsHardwareAbstractionLayer Current: $infoversion.OsHardwareAbstractionLayer Expected: $OsHardwareAbstractionLayer"
   }
   Exit-Json $result;
 }
