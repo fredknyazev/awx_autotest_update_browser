@@ -4,6 +4,7 @@
 # POWERSHELL_COMMON
 #!powershell
 
+$params = Parse-Args $args;
 $result = @{};
 Try {
   $WindowsProductName = Get-Attr -obj $params -name WindowsProductName
