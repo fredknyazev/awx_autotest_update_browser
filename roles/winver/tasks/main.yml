@@ -1,5 +1,8 @@
 ---  
 - name: "Getting Windows version"
   win_version:
+    WindowsProductName: "{{WindowsProductName}}"
+    WindowsVersion: "{{WindowsVersion}}"
+    OsHardwareAbstractionLayer: "{{OsHardwareAbstractionLayer}}"
     become: yes
     become_method: runas
