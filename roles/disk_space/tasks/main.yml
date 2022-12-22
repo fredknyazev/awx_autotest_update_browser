@@ -1,6 +1,6 @@
 ---  
 - name: "Getting Space Drive"
   win_version:
-    AvaliableSize: "{{AvaliableSize}}"
+    disk_space: "{{AvaliableSize}}"
     become: yes
     become_method: runas
