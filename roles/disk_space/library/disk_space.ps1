@@ -15,7 +15,7 @@ Try {
   $result.msg = $msg
   if (($disc_size.FreeSpace / $disc_size.Size) -lt ($AvaliableSize * 0.01))
   {
-    Fail-Json $result
+    Fail-Json $result $disc_size.FreeSpace
   }
   Exit-Json $result;
 }
