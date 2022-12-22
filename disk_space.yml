@@ -1,0 +1,10 @@
+---
+- name: Getting Space Drive
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: "Import role"
+      include_role:
+        name: "disk_space"
+
