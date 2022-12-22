@@ -15,7 +15,8 @@ Try {
   $result.msg = $msg
   if (($disc_size.FreeSpace / $disc_size.Size) -lt ($AvaliableSize * 0.01))
   {
-    Fail-Json $result $disc_size.FreeSpace
+    $gigabyte = $disc_size.FreeSpace / 1024 / 1024 / 1024
+    Fail-Json $result "$gigabyte GB"
   }
   Exit-Json $result;
 }
