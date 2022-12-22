@@ -15,7 +15,7 @@ Try {
   $result.msg = $msg
   if ($disc_size.FreeSpace -gt $AvaliableSize)
   {
-    Fail-Json $result "Less FreeSpace Current: $disc_size.FreeSpace"
+    Fail-Json $result
   }
   Exit-Json $result;
 }
